@@ -1,8 +1,10 @@
 import { Platform, StyleSheet, View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Header from "../../components/header/header";
-import ExpensesList from "../../components/expensesList/expensesList";
-import ButtonsRow from "../../components/ButtonsRow/ButtonsRow";
+import Header from "../../components/MainPageComponents/header/header";
+import ExpensesList from "../../components/MainPageComponents/expensesList/expensesList";
+import ButtonsRow from "../../components/MainPageComponents/ButtonsRow/ButtonsRow";
+import CardsBlock from "../../components/MainPageComponents/CardsComponent/CardsComponent";
+import CardsComponent from "../../components/MainPageComponents/CardsComponent/CardsComponent";
 
 export default function HomeScreen() {
   return (
@@ -10,6 +12,7 @@ export default function HomeScreen() {
       <SafeAreaView style={styles.container}>
         <Header />
         <ButtonsRow />
+        <CardsComponent />
         <ExpensesList />
       </SafeAreaView>
     </View>

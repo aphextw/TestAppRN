@@ -1,24 +1,32 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
+
+const mockUser = { name: "Charlotte" };
 
 const Header = () => {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <View style={[styles.row, styles.centered]}>
         <View style={[styles.circle, { marginRight: 12 }]}>
           <Image
             style={styles.image}
-            source={require("../../assets/images/Union.svg")}
+            source={require("../../../assets/images/Union.svg")}
           />
         </View>
 
-        <TouchableOpacity style={[styles.row, styles.centered]}>
+        <TouchableOpacity
+          onPress={() => router.push("./Notification")}
+          style={[styles.row, styles.centered]}
+        >
           <Text style={[styles.regularText, { marginRight: 8 }]}>
-            Charlotte
+            {mockUser.name}
           </Text>
           <Image
             style={{ height: 10, width: 6 }}
-            source={require("../../assets/images/Vector.svg")}
+            source={require("../../../assets/images/Vector.svg")}
           />
         </TouchableOpacity>
       </View>
@@ -26,7 +34,7 @@ const Header = () => {
       <TouchableOpacity style={styles.button}>
         <Image
           style={{ height: 18, width: 18 }}
-          source={require("../../assets/images/qr.svg")}
+          source={require("../../../assets/images/qr.svg")}
         />
       </TouchableOpacity>
     </View>
@@ -42,6 +50,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   container: {
+    paddingTop: 5,
+    padding: 2,
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
