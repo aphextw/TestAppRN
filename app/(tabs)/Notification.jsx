@@ -8,7 +8,9 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
-import NotificationHeader from "../../components/NotificationHeader/NotificationHeader";
+import NotificationHeader from "../../components/NotificationHeader/Header/NotificationHeader";
+import NotificationButtons from "../../components/NotificationHeader/Header/notificationButtons";
+import BiggerCardComponent from "../../components/NotificationHeader/CardsComponent/biggerCardComponent";
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -16,6 +18,8 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.mainContainer}>
       <NotificationHeader onBackPress={() => router.back()} />
+      <NotificationButtons />
+      <BiggerCardComponent />
     </SafeAreaView>
   );
 }
@@ -25,7 +29,7 @@ const styles = StyleSheet.create({
   row: { flexDirection: "row" },
   mainContainer: {
     backgroundColor: "#060503",
-    paddingHorizontal: 16,
+    // paddingHorizontal: 16,
     paddingTop: 5,
     flex: 1,
   },

@@ -12,7 +12,7 @@ const NotificationHeader = ({ onBackPress, onRightPress }) => {
         <View style={styles.iconWrap}>
           <Image
             style={styles.leftIcon}
-            source={require("../../assets/images/Vector.svg")}
+            source={require("../../../assets/images/Vector.svg")}
           />
         </View>
       </TouchableOpacity>
@@ -24,11 +24,9 @@ const NotificationHeader = ({ onBackPress, onRightPress }) => {
         onPress={onRightPress}
       >
         <Image
-          source={require("../../assets/images/ArrowUp.svg")}
+          source={require("../../../assets/images/ArrowUp.svg")}
           style={styles.iconWrapRight}
-        >
-          <View style={styles.rightIcon} />
-        </Image>
+        />
       </TouchableOpacity>
     </View>
   );
@@ -36,8 +34,8 @@ const NotificationHeader = ({ onBackPress, onRightPress }) => {
 
 const styles = StyleSheet.create({
   header: {
-    width: 375,
-    height: 57,
+    width: "100%",
+    minHeight: 57,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#060503",
@@ -59,7 +57,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonLeft: {
-    left: 16,
+    left: 25,
     top: 16.5,
   },
   buttonRight: {
