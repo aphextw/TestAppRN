@@ -8,14 +8,14 @@ import CardsComponent from "../../components/MainPageComponents/CardsComponent/C
 
 export default function HomeScreen() {
   return (
-    <View style={styles.mainContainer}>
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["top"]}>
+      <View style={styles.mainContainer}>
         <Header />
         <ButtonsRow />
         <CardsComponent />
         <ExpensesList />
-      </SafeAreaView>
-    </View>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -26,5 +26,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#060503",
     flex: 1,
   },
-  container: { marginHorizontal: 16 },
+  container: { marginHorizontal: 16, flex: 1 },
 });

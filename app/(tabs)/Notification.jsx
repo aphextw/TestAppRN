@@ -16,7 +16,7 @@ export default function HomeScreen() {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <SafeAreaView style={styles.mainContainer} edges={["top"]}>
       <NotificationHeader onBackPress={() => router.back()} />
       <NotificationButtons />
       <BiggerCardComponent />

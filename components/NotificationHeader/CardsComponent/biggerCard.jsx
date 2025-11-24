@@ -1,4 +1,5 @@
 import { View, Text, Image, StyleSheet } from "react-native";
+import formatSubtitle from "../../../utils/formatSubtitle";
 
 const BiggerCard = ({ data }) => {
   return (
@@ -14,11 +15,14 @@ const BiggerCard = ({ data }) => {
           <Text style={styles.name}>{data.name}</Text>
           {data.amount && <Text style={styles.amount}>{data.amount}</Text>}
 
-          <Text style={styles.subtitle}>{data.subtitle}</Text>
+          <Text style={styles.subtitle} numberOfLines={2} ellipsizeMode="tail">
+            {data.subtitle}
+          </Text>
 
           <Text style={styles.date}>{data.date}</Text>
         </View>
       </View>
+
       {data.unread && <View style={styles.unreadDot} />}
     </View>
   );
@@ -29,13 +33,13 @@ export default BiggerCard;
 const styles = StyleSheet.create({
   container: {
     justifyContent: "space-between",
-    height: 80,
+    height: 90,
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 16,
-    marginBottom: 24,
-    marginTop: 16,
+    marginBottom: 30,
+    marginTop: 15,
   },
   row: { flexDirection: "row" },
   unreadDot: {
@@ -57,10 +61,10 @@ const styles = StyleSheet.create({
 
   avatarPlaceholder: {
     marginRight: 12,
-    width: 40,
-    height: 40,
+    width: 42,
+    height: 42,
     borderRadius: 12,
-    backgroundColor: "#333",
+    backgroundColor: "#0F0F0F",
   },
 
   textBlock: {
@@ -89,6 +93,7 @@ const styles = StyleSheet.create({
   },
 
   subtitle: {
+    maxWidth: 300,
     fontSize: 14,
     color: "#AEAEAE",
     fontWeight: "400",
