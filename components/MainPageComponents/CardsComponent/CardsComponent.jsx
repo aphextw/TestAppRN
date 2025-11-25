@@ -2,6 +2,7 @@ import {
   View,
   Text,
   StyleSheet,
+  Image,
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
@@ -27,10 +28,10 @@ const Card = ({
         style={[styles.card, imageFirst && styles.cardTop]}
       >
         <View style={styles.mastercardWrapper}>
-          <View style={styles.mcWrapper}>
-            <View style={styles.mcCircleLeft} />
-            <View style={styles.mcCircleRight} />
-          </View>
+          <Image
+            style={{ width: 26, height: 16 }}
+            source={require("../../../assets/images/Exclude.png")}
+          />
         </View>
 
         <View style={styles.textBlock}>

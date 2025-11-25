@@ -1,14 +1,31 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import formatSubtitle from "../../../utils/formatSubtitle";
+import { Icons } from "../../MainPageComponents/ButtonsRow/buttons";
 
 const BiggerCard = ({ data }) => {
+  const getIcon = () => {
+    if (!data.date) return null;
+
+    if (data.date.toLowerCase().includes("travel") && Icons.travel) {
+      return <Icons.travel />;
+    }
+    if (data.date.toLowerCase().includes("payments") && Icons.arrowUp) {
+      return <Icons.arrowUp />;
+    }
+    if (data.date.toLowerCase().includes("security") && Icons.shield) {
+      return <Icons.shield />;
+    }
+
+    return null;
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.row}>
         {data.avatar ? (
           <Image source={data.avatar} style={styles.avatar} />
         ) : (
-          <View style={styles.avatarPlaceholder} />
+          <View style={styles.avatarPlaceholder}>{getIcon()}</View>
         )}
 
         <View style={{ gap: 9 }}>
@@ -33,13 +50,13 @@ export default BiggerCard;
 const styles = StyleSheet.create({
   container: {
     justifyContent: "space-between",
-    height: 90,
+    minHeight: 90,
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 16,
-    marginBottom: 30,
-    marginTop: 15,
+    marginBottom: 19,
+    marginTop: 16,
   },
   row: { flexDirection: "row" },
   unreadDot: {
@@ -60,6 +77,8 @@ const styles = StyleSheet.create({
   },
 
   avatarPlaceholder: {
+    justifyContent: "center",
+    alignItems: "center",
     marginRight: 12,
     width: 42,
     height: 42,

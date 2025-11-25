@@ -13,6 +13,7 @@ export const SECTION_DATA = [
         amount: "$56.19",
         date: "Jun 9, 12:08",
         avatar: require("../../../assets/images/Avatar.jpg"),
+        dotColor: "#CC3F02",
       },
     ],
   },
@@ -26,6 +27,7 @@ export const SECTION_DATA = [
         amount: "$122.47",
         date: "Jun 8, 19:21",
         avatar: require("../../../assets/images/starbukcs.png"),
+        dotColor: "#FE5900",
       },
       {
         key: 3,
@@ -34,6 +36,7 @@ export const SECTION_DATA = [
         amount: "$13.17",
         date: "Jun 8, 08:53",
         avatar: require("../../../assets/images/netflix.png"),
+        dotColor: "#FF9332",
       },
     ],
   },

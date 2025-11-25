@@ -21,6 +21,8 @@ export default function TabLayout() {
         tabBarStyle: {
           borderTopWidth: -1,
           shadowColor: "#000",
+          paddingBottom: 10,
+          height: 87,
           backgroundColor: "#000",
         },
         tabBarLabelStyle: {
@@ -134,7 +136,6 @@ export default function TabLayout() {
         name="Notification"
         options={{
           title: "Notification",
-          tabBarShowLabel: false,
           href: null,
           tabBarIcon: ({ color }) => (
             <Svg width="20" height="20" viewBox="0 0 20 20" fill="none">

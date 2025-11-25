@@ -13,7 +13,7 @@ const Card = ({ data = CARD_DATA }) => {
         <Text style={styles.name}>{data.name}</Text>
 
         <View style={styles.subtitleRow}>
-          <View style={styles.dot} />
+          <View style={[styles.dot, { backgroundColor: data.dotColor }]} />
           <Text style={styles.subtitle}>{data.subtitle}</Text>
         </View>
       </View>

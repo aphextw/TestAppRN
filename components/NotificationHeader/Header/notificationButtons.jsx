@@ -1,8 +1,11 @@
-import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { useContext, useState } from "react";
+
+import AppContext from "../../../context/context";
 
 const CustomTabs = () => {
-  const [activeTab, setActiveTab] = React.useState(0);
+  const [activeTab, setActiveTab] = useState(0);
+  const { filter, setFilter } = useContext(AppContext);
 
   const tabsData = [
     { id: 0, text: "All", width: 17 },
@@ -15,45 +18,50 @@ const CustomTabs = () => {
   const tabWidths = [41, 90, 74, 78, 65];
 
   return (
-    <View style={styles.container}>
-      {tabsData.map((tab, index) => (
-        <TouchableOpacity
-          key={tab.id}
-          style={[
-            styles.tab,
-            { width: tabWidths[index] },
-            activeTab === tab.id && styles.activeTab,
-          ]}
-          onPress={() => setActiveTab(tab.id)}
-        >
-          <View style={[styles.textContainer, { width: tab.width }]}>
-            <Text
-              style={[styles.text, activeTab === tab.id && styles.activeText]}
-            >
-              {tab.text}
-            </Text>
-          </View>
-        </TouchableOpacity>
-      ))}
+    <View style={styles.outerContainer}>
+      <View style={styles.container}>
+        {tabsData.map((tab, index) => (
+          <TouchableOpacity
+            key={tab.id}
+            style={[
+              styles.tab,
+              { width: tabWidths[index] },
+              activeTab === tab.id && styles.activeTab,
+            ]}
+            onPress={() => {
+              setActiveTab(tab.id);
+              setFilter(tab.text);
+            }}
+          >
+            <View style={[styles.textContainer, { width: tab.width }]}>
+              <Text
+                style={[styles.text, activeTab === tab.id && styles.activeText]}
+              >
+                {tab.text}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        ))}
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    boxSizing: "border-box",
-    flexDirection: "row",
-    alignItems: "flex-start",
-    paddingHorizontal: 24,
+  outerContainer: {
     width: "100%",
-    height: 40,
     borderBottomWidth: 1,
     borderBottomColor: "#1F1F1F",
-    flex: 0,
-    alignSelf: "stretch",
+  },
+  container: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    height: 40,
+    alignSelf: "center",
+    maxWidth: "100%",
   },
   tab: {
-    boxSizing: "border-box",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
@@ -85,7 +93,6 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     textAlign: "center",
     color: "#AEAEAE",
-    flex: 0,
   },
   activeText: {
     color: "#FE5900",
